@@ -1,0 +1,70 @@
+/* cozy-discord-font-nunito.css
+   gentle rounded font vibes for discord web
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --ui-size: 14px;
+  --msg-size: 15px;
+  --weight-regular: 400;
+  --weight-medium: 600;
+  --line-height: 1.5;
+  --letter-spacing: 0.005em;
+}
+
+body, html {
+  font-family: var(--font-family) !important;
+  font-size: var(--ui-size) !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* messages */
+div[class*="messageContent"],
+div[class*="markup"],
+span[class*="message-"],
+div[class*="textArea-"],
+div[class*="chat"] {
+  font-family: var(--font-family) !important;
+  font-size: var(--msg-size) !important;
+  line-height: var(--line-height) !important;
+  letter-spacing: var(--letter-spacing) !important;
+  font-weight: var(--weight-regular) !important;
+}
+
+/* usernames + titles */
+h1, h2, h3,
+[class*="username"],
+[class*="title"],
+[class*="header-"],
+[class*="member"] {
+  font-family: var(--font-family) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+/* buttons / inputs */
+button, input, textarea, select {
+  font-family: var(--font-family) !important;
+  font-size: var(--ui-size) !important;
+}
+
+/* code blocks keep monospace */
+pre, code, .hljs {
+  font-family: ui-monospace, "JetBrains Mono", "Roboto Mono", monospace !important;
+}
+
+/* softer small UI */
+.guildName-2Jsh0M, .channel-2QD9_O {
+  font-size: 13px !important;
+}
+
+/* lightly smoothed long messages */
+.markup-2BOw-j, .textArea-2Spzkt {
+  line-height: 1.6 !important;
+}
+
+/* mobile adjust */
+@media (max-width: 800px) {
+  :root { --ui-size: 13px; --msg-size: 14px; }
+}
