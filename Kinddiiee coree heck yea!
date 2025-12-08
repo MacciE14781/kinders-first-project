@@ -1,0 +1,76 @@
+/* ✨ kindie's cozy aesthetic pack ✨ */
+
+/* --- 1. soft rounded ui everywhere --- */
+* {
+  border-radius: 12px !important;
+}
+
+/* --- 2. floating messages on hover --- */
+div[class*="message_"] {
+  transition: transform .20s ease, background .20s ease;
+}
+div[class*="message_"]:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* --- 3. dreamy sidebar channel fade --- */
+.channel-2QD9_O {
+  transition: opacity .25s ease, font-size .15s ease;
+}
+.container-1Xe5Y7:not(:hover) .channel-2QD9_O {
+  opacity: 0.45;
+}
+.container-1Xe5Y7:hover .channel-2QD9_O:hover {
+  opacity: 1 !important;
+  font-size: 15px !important; /* breathing effect */
+}
+
+/* --- 4. pastel glow reactions --- */
+button[class*="reaction"] {
+  transition: box-shadow .2s ease;
+}
+button[class*="reaction"]:hover {
+  box-shadow: 0 0 8px rgba(255, 180, 250, 0.6);
+}
+
+/* --- 5. soft cloudy server bar --- */
+.scroller-3X7KbA {
+  background: linear-gradient(
+    180deg,
+    #f7eaff 0%,
+    #e9f5ff 40%,
+    #fff6ed 100%
+  ) !important;
+}
+
+/* --- 6. soft reading mode for long messages --- */
+.markup-2BOw-j {
+  line-height: 1.6 !important;
+  color: #f5f3f8 !important;
+}
+
+/* --- 7. glowy input bar --- */
+.textArea-2Spzkt {
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  box-shadow: 0 0 10px rgba(255,255,255,0.07);
+  transition: box-shadow .25s ease;
+}
+.textArea-2Spzkt:focus-within {
+  box-shadow: 0 0 16px rgba(255, 200, 255, 0.25);
+}
+
+/* --- 8. gentle hover highlights for server icons --- */
+.wrapper-3kah-n:hover {
+  transform: scale(1.07);
+  transition: .18s ease;
+  filter: drop-shadow(0 0 6px rgba(255, 230, 255, 0.4));
+}
+
+/* --- 9. soft star cursor option (uncomment if you want it!) --- */
+/*
+* {
+  cursor: url("https://i.imgur.com/1A0wz7H.png") 16 16, auto !important;
+}
+*/
