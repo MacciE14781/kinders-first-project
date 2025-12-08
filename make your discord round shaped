@@ -1,0 +1,4 @@
+/* soften everything */
+* {
+  border-radius: 14px !important;
+}
