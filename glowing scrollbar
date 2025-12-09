@@ -1,0 +1,17 @@
+/* glowing scrollbar */
+::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(200, 170, 150, 0.6) !important;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(200, 150, 120, 0.8) !important;
+    box-shadow: 0 0 6px rgba(200, 150, 120, 0.5);
+}
+
+
+
