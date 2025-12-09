@@ -1,0 +1,628 @@
+/* ------------------------------------------------------------------
+   * cozy beige — full Discord GUI theme
+   * paste into BetterDiscord / QuickCSS / Stylus
+   * tweak the :root variables below to tune vibe
+   * created for Kindie’s warm, soft aesthetic ✧
+   ------------------------------------------------------------------ */
+
+/* ---------------------------
+   palette & global settings
+   --------------------------- */
+:root{
+  /* main palette */
+  --bg-0: #f6f1eb;  /* overall background */
+  --bg-1: #efe7df;  /* panels */
+  --bg-2: #f9f6f2;  /* message background */
+  --accent-1: #d9c8b8; /* subtle accents, scrollbar thumb */
+  --accent-2: #c8b29f; /* buttons / highlights */
+  --text-1: #3f352f;  /* main text */
+  --muted:  #6f5f57;  /* muted text */
+  --glass: rgba(255,255,255,0.6); /* frosted overlay */
+  --shadow-1: rgba(63,53,47,0.08);
+  --glow: rgba(200,170,150,0.14);
+  --success: #9fcfb0;
+  --danger: #e7a8a8;
+  --link: #b07a5b;
+
+  /* sizes */
+  --radius-1: 14px;
+  --radius-2: 10px;
+  --radius-3: 8px;
+
+  /* fonts (system fallback for cozy feel) */
+  --ui-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  /* misc */
+  --glass-blur: 8px;
+  --transition: 200ms cubic-bezier(.2,.7,.2,1);
+}
+
+/* apply base font + background */
+* { box-sizing: border-box; }
+html, body, #app-mount, .appMount-3lHmkl {
+  background: linear-gradient(180deg, var(--bg-0) 0%, #fbf7f4 100%) !important;
+  font-family: var(--ui-font) !important;
+  color: var(--text-1) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* tiny global tweaks */
+a { color: var(--link) !important; text-decoration: none !important; }
+.app-1q1iHa { background: none !important; }
+
+/* ---------------------------
+   server list (left-most icons)
+   --------------------------- */
+.guilds-1tL0O7 {
+  background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.25));
+  padding: 12px 8px !important;
+  border-right: 1px solid rgba(86,70,60,0.04);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 6px 18px var(--shadow-1);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+/* server icon container */
+.guilds-1tL0O7 .container-2q6gwB {
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.02));
+  padding: 6px;
+  border-radius: 14px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.guilds-1tL0O7 .container-2q6gwB:hover { transform: translateY(-3px); box-shadow: 0 8px 20px var(--glow); }
+
+/* active server glyph */
+.guilds-1tL0O7 .guild-3BF8eU.selected-3O2Vt7::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 6px;
+  width: 36%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-2), #e6d6c8);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(176,122,91,0.12);
+}
+
+/* create/join buttons */
+.guilds-1tL0O7 .guildSeparator-3xciw- { display:none; }
+.guilds-1tL0O7 .button-3z5vu1 {
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,243,238,0.7));
+  border: 1px solid rgba(150,120,100,0.06);
+  box-shadow: 0 4px 10px rgba(140,110,90,0.04);
+  border-radius: 12px;
+}
+
+/* unread pips */
+.guilds-1tL0O7 .unreadDot-2l8Dqg {
+  background: radial-gradient(circle, #f6c9b0, #d99e7f) !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(217,158,127,0.2);
+}
+
+/* ---------------------------
+   server/channel column
+   --------------------------- */
+.container-2Pjhx- {
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(250,244,240,0.8)) !important;
+  border-right: 1px solid rgba(86,70,60,0.04);
+  padding: 12px !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 18px;
+  height: calc(100vh - 32px);
+  backdrop-filter: blur(6px);
+}
+
+/* server header */
+.title-3qD7R1 {
+  color: var(--text-1) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* channels list */
+.channel-2QD9_O, .containerChild-2J4oxR {
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.01));
+  border-radius: var(--radius-2);
+  padding: 6px 8px;
+  transition: background var(--transition), transform var(--transition);
+}
+.channel-2QD9_O:hover { background: rgba(210,190,170,0.04); transform: translateX(4px); }
+
+/* category headers */
+.title-2twR0A {
+  color: var(--muted) !important;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 8px 6px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* voice channel style */
+[data-list-item-id^="channels___voice"]:hover {
+  background: linear-gradient(90deg, rgba(200,170,150,0.02), rgba(200,170,150,0.01));
+  border-radius: 10px;
+}
+
+/* ---------------------------
+   main chat area
+   --------------------------- */
+.container-3baos1 {
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,252,249,0.7));
+  border-radius: 18px;
+  margin: 16px;
+  box-shadow: 0 10px 30px var(--shadow-1);
+  overflow: hidden;
+}
+
+/* message list background (soft paper) */
+.scrollerInner-2YIMLh {
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.5) 0px, rgba(250,245,242,0.5) 1px);
+  padding: 28px 36px !important;
+  min-height: 100%;
+}
+
+/* default message container tweaks */
+.message-2qnXI6 {
+  background: linear-gradient(180deg, var(--bg-2), rgba(255,255,255,0.85));
+  border-radius: var(--radius-1);
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 6px 18px rgba(110,90,78,0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* subtle float on hover */
+.message-2qnXI6:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(100,80,70,0.06); }
+
+/* avatar styling */
+.avatar-1BDn8e {
+  border-radius: 12px !important;
+  border: 2px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 12px rgba(80,60,50,0.06);
+  width: 44px !important;
+  height: 44px !important;
+}
+
+/* avatar ring to show status but softer */
+.avatar-1BDn8e::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.statusOnline-2hbXr2::after { background: linear-gradient(45deg, #9fe2b0, #6fbf8a); }
+.statusIdle-3zasw9::after { background: linear-gradient(45deg, #f6d58b, #efc86b); }
+.statusDoNotDisturb-3j9k3L::after { background: linear-gradient(45deg, #f0a6a6, #e07c7c); }
+
+/* author & timestamp */
+.header-23xsNx {
+  display:flex; gap:8px; align-items:center;
+}
+.username-2b1r56 {
+  color: var(--text-1) !important;
+  font-weight: 700;
+  font-size: 14px;
+}
+.timestamp-2L0o7A { color: var(--muted) !important; font-size: 12px; margin-left: 4px; }
+
+/* message content */
+.bubble-2QvY8l, .markup-2BOw-j {
+  color: var(--text-1) !important;
+  font-size: 14px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+/* quoted messages & replies */
+.replyButton-1B6Pqe, .quotedMessage-3v3x1e {
+  background: linear-gradient(90deg, rgba(236,227,216,0.5), rgba(250,244,240,0.6));
+  border-left: 3px solid rgba(200,170,150,0.18);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* code blocks */
+.codeBlock-2b8vnM pre, .hljs {
+  background: linear-gradient(180deg, rgba(246,241,235,0.6), rgba(250,245,240,0.6));
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px dashed rgba(160,130,110,0.06);
+  color: var(--text-1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 13px;
+  overflow: auto;
+}
+
+/* attachments / uploaded images */
+.file-3QfZbB, .attachment-1QyIu2 {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(248,243,238,0.6));
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid rgba(160,130,110,0.04);
+  box-shadow: 0 8px 18px rgba(120,90,70,0.04);
+}
+.embed-3Qv_jI {
+  border-radius: 12px;
+  border: 1px solid rgba(160,130,110,0.06);
+  background: linear-gradient(180deg, rgba(255,250,248,0.6), rgba(255,255,255,0.6));
+}
+
+/* images hover overlay */
+.image-2eCL1v:hover::after {
+  content: 'view';
+  position: absolute;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: rgba(60,46,40,0.6);
+  color: #fff; padding: 8px 14px; border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  backdrop-filter: blur(6px);
+}
+
+/* pinned messages */
+.pin-3k9l0k {
+  background: linear-gradient(90deg, rgba(241,235,226,0.6), rgba(250,244,240,0.6));
+  border-left: 3px solid rgba(200,170,150,0.16);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* typing indicator — gentle dots */
+.typing-3K8NeA {
+  background: rgba(0,0,0,0);
+}
+.typing-3K8NeA .dot {
+  background: linear-gradient(90deg, #e0c8b0, #bfa08a);
+  box-shadow: 0 4px 12px rgba(180,140,110,0.08);
+}
+
+/* reactions bar — soft rounded pills */
+.reaction-3i2z6S {
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,244,240,0.9));
+  border-radius: 999px;
+  padding: 6px 8px;
+  margin-right: 6px;
+  border: 1px solid rgba(160,130,110,0.06);
+  box-shadow: 0 4px 12px rgba(160,120,90,0.04);
+  color: var(--muted);
+}
+.reaction-3i2z6S:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(170,130,100,0.06);
+}
+
+/* emoji size increase on hover */
+.emoji-1FBeaN {
+  transition: transform var(--transition);
+}
+.emoji-1FBeaN:hover { transform: scale(1.25); }
+
+/* mention pill */
+.mention-2vCx1p {
+  color: #fff !important;
+  background: linear-gradient(90deg, var(--accent-2), #b07a5b);
+  padding: 3px 8px;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(176,122,91,0.12);
+}
+
+/* divider line */
+.divider-2y3eIS { opacity: 0.6; border-color: rgba(150,120,100,0.06); }
+
+/* ---------------------------
+   right member list / people
+   --------------------------- */
+.membersWrap-3bBYbB {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,244,240,0.6));
+  border-left: 1px solid rgba(86,70,60,0.04);
+  padding: 12px;
+  border-top-left-radius: 18px;
+}
+
+/* member row */
+.member-3-YXUe {
+  padding: 6px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  transition: background var(--transition), transform var(--transition);
+}
+.member-3-YXUe:hover { background: rgba(200,170,150,0.02); transform: translateX(-6px); }
+
+/* role colors softened */
+.role-30s0jN {
+  filter: saturate(0.85) brightness(1.03);
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  background: linear-gradient(90deg, rgba(200,170,150,0.06), rgba(200,170,150,0.02));
+}
+
+/* badges (bot, nitro) */
+.badge-3DFkG5 {
+  background: linear-gradient(90deg, rgba(210,190,170,0.18), rgba(200,170,150,0.06));
+  color: var(--muted);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 11px;
+}
+
+/* search box */
+.inputDefault-3FGxgL {
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(250,245,240,0.8));
+  border: 1px solid rgba(150,120,100,0.06);
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+
+/* ---------------------------
+   top navigation / header
+   --------------------------- */
+.title-3qD7R1 {
+  color: var(--text-1) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* call / stage UI */
+.call-1nX1hW, .stage-1aE-YC {
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(250,245,240,0.9));
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 28px rgba(160,120,90,0.04);
+}
+
+/* buttons */
+.button-38aScr {
+  background: linear-gradient(180deg, #fff, rgba(250,245,240,0.95));
+  border: 1px solid rgba(160,130,110,0.06);
+  border-radius: 12px;
+  color: var(--text-1);
+  padding: 6px 12px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.button-38aScr:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(160,120,90,0.06); }
+
+/* icons - soften */
+.icon-2IH3EJ, svg {
+  filter: drop-shadow(0 2px 6px rgba(150,120,100,0.03));
+  opacity: 0.92;
+}
+
+/* ---------------------------
+   context menus / popovers (frosted glass)
+   --------------------------- */
+.popout {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,250,248,0.5)) !important;
+  border: 1px solid rgba(160,130,110,0.06) !important;
+  box-shadow: 0 20px 60px rgba(120,90,70,0.06) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+}
+
+/* menu items */
+.item-3Yq7TP {
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.item-3Yq7TP:hover { background: rgba(200,170,150,0.02); transform: translateX(4px); }
+
+/* checkboxes/toggles */
+.switch-3I0m4d {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,244,240,0.9));
+  border: 1px solid rgba(160,130,110,0.06);
+}
+
+/* modals */
+.modal-3c3bKg {
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,252,249,0.85));
+  box-shadow: 0 30px 90px rgba(80,60,50,0.08);
+}
+
+/* tooltips */
+.tooltip-2t3h6h {
+  background: rgba(52,40,34,0.86) !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  padding: 6px 8px !important;
+  font-size: 12px !important;
+}
+
+/* ---------------------------
+   notifications / toasts
+   --------------------------- */
+.toast-2hR6y6 {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,245,240,0.95));
+  border: 1px solid rgba(160,130,110,0.06);
+  border-radius: 12px;
+}
+
+/* unread message highlight — soft */
+.unreadHighlighted-3p3M5j {
+  box-shadow: inset 0 0 0 3px rgba(200,170,150,0.06);
+}
+
+/* mention badge */
+.mention-3VMfOc {
+  background: linear-gradient(90deg, #b07a5b, #d09b7d);
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-weight: 700;
+}
+
+/* ---------------------------
+   input box (message composer)
+   --------------------------- */
+.container-1eKE0Z {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,245,240,0.9));
+  border-top: 1px solid rgba(150,120,100,0.04);
+  padding: 12px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 -6px 18px rgba(100,80,70,0.02);
+}
+
+/* text area */
+.textarea-1JA7xg, .input-2l3r3k {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,245,240,0.95));
+  border: 1px solid rgba(160,130,110,0.05);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text-1);
+  box-shadow: inset 0 2px 8px rgba(200,170,150,0.02);
+}
+
+/* send button */
+.buttonContainer-1I1bOr .button-38aScr {
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  border: none;
+}
+
+/* attachments + emoji button */
+.iconButton-1uQyJk {
+  background: rgba(255,255,255,0.6);
+  border-radius: 10px;
+}
+
+/* placeholder color */
+.textarea-1JA7xg::placeholder { color: rgba(100,80,70,0.3); }
+
+/* ---------------------------
+   settings page / big panels
+   --------------------------- */
+.settingsWrap-3gS8cE {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(251,247,244,0.95));
+  border-radius: 12px;
+  border: 1px solid rgba(160,130,110,0.04);
+  padding: 18px;
+}
+
+/* toggles & selects */
+.select-1EIOCq, .dropdown-1Yf5h7 {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,244,240,0.95));
+  border-radius: 10px;
+  border: 1px solid rgba(160,130,110,0.06);
+}
+
+/* search settings input */
+.search-3F8MhG {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,244,240,0.95));
+  border-radius: 14px;
+  padding: 8px 10px;
+}
+
+/* ---------------------------
+   accessibility touches
+   --------------------------- */
+/* reduce motion when user prefers */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; transform: none !important; }
+}
+
+/* contrast tweaks for readability */
+@media (min-width: 1200px) {
+  .markup-2BOw-j { font-size: 15px; }
+}
+
+/* ---------------------------
+   micro-animations (subtle)
+   --------------------------- */
+/* soft background float on the whole chat area */
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+.container-3baos1:hover { animation: floaty 6s ease-in-out infinite; opacity: 0.998; }
+
+/* little shimmer for clickable things */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+.button-38aScr.shimmer {
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.35) 100%);
+  background-size: 400px 100%;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ---------------------------
+   optional extras (toggle these if you like)
+   --------------------------- */
+
+/* make icons rounded for extra coziness */
+.icon-2IH3EJ, .iconWrapper-1K3u8J {
+  border-radius: 8px !important;
+}
+
+/* add faint paper texture overlay */
+.paperTexture {
+  background-image: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'>\
+  <g fill='none' stroke='%23e9e0d8' stroke-opacity='0.06' stroke-width='0.5'>\
+  <path d='M0 10 Q25 20 50 10 T100 10'/>\
+  </g></svg>");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+}
+
+/* spotlight for pinned messages panel */
+.pinnedBox-3bH6Uz {
+  box-shadow: 0 20px 50px rgba(160,120,90,0.06), inset 0 1px 0 rgba(255,255,255,0.16);
+  border-radius: 12px;
+}
+
+/* gentle card elevation for any important UI */
+.cardSoft {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(252,248,245,0.95));
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(120,90,70,0.05);
+  border: 1px solid rgba(160,130,110,0.05);
+}
+
+/* ---------------------------
+   accessibility: increase contrast mode (optional)
+   --------------------------- */
+:root.increase-contrast {
+  --bg-0: #f3eee8;
+  --text-1: #2b221f;
+  --muted: #5b4b46;
+  --accent-1: #d4b8a0;
+  --accent-2: #be8f6f;
+}
+
+/* ---------------------------
+   final polish — tiny helpers
+   --------------------------- */
+/* soften focus outlines */
+:focus { outline: none !important; box-shadow: 0 0 0 3px rgba(176,122,91,0.08) !important; border-radius: 6px; }
+
+/* ensure avatars / images are crisp */
+img { image-rendering: auto !important; -webkit-font-smoothing: antialiased; }
+
+/* hiding small unwanted built-in badges (if you like minimalism) */
+/* .premiumBadge-2IGPMQ { display: none !important; } */
+
+/* ---------------------------
+   end of cozy beige theme
+   --------------------------- */
+
+/* tiny note: change :root variables at the top to tune warmth, contrast, or turn it into a night mode by swapping bg & text colors. */
