@@ -1,0 +1,43 @@
+/* ✧ cozy beige discord theme snippet ✧ */
+
+/* background */
+.appMount-3lHmkl {
+    background: #f4efe7 !important;
+}
+
+/* message bubbles */
+.message-2CShn3 {
+    background: rgba(255, 248, 240, 0.6) !important;
+    border-radius: 18px;
+    padding: 6px 12px;
+    margin-bottom: 6px;
+}
+
+/* soft text colors */
+.markup-eYLPri, .username-h_Y3Us {
+    color: #4c413c !important;
+}
+
+/* scrollbar (soft + subtle) */
+::-webkit-scrollbar-thumb {
+    background: #daccc2 !important;
+    border-radius: 999px;
+}
+::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+/* channels on the left */
+.containerDefault-YUSmu3 {
+    background: #f8f3ec !important;
+    border-radius: 12px;
+    margin: 4px 0;
+}
+.name-28HaxV {
+    color: #6b5e57 !important;
+}
+
+/* top bar */
+.titleBar-1it3bQ {
+    background: #efe7df !important;
+}
