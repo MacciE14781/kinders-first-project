@@ -1,0 +1,49 @@
+/* ===== liquid glass base ===== */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(18px);
+  --glass-radius: 18px;
+}
+
+/* main background */
+.appMount-2yBXZl {
+  background: linear-gradient(
+    135deg,
+    rgba(180, 200, 255, 0.15),
+    rgba(255, 200, 230, 0.12)
+  );
+}
+
+/* panels (servers, chat, members) */
+.container-1eFtFS,
+.scroller-3X7KbA,
+.chat-2ZfjoI,
+.members-3WRCEx {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--glass-radius);
+  border: 1px solid var(--glass-border);
+  margin: 6px;
+}
+
+/* message bubbles */
+.message-2CShn3 {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 6px 10px;
+}
+
+/* input box */
+.channelTextArea-1FufC0 {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+}
+
+/* buttons hover glow */
+button:hover {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+  transition: 0.2s ease;
+}
